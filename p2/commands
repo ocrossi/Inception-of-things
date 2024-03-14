@@ -1,0 +1,7 @@
+sudo kubectl get all -n kube-system
+
+# install & run flask app
+sudo apk update && sudo apk add python3 py3-pip
+sudo p app.py /opt/
+
+
