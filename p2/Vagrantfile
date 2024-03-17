@@ -12,12 +12,10 @@ scriptserver = <<-SHELL
     echo I am provisioning server...
     sudo -i
     apk add curl
-    # docker is not installed with k3s???
-    apk add --update docker openrc
-    # run docker daemon on boot
-    # rc-update add docker boot	
+    apk add --update docker docker-compose openrc
     service docker start
     export INSTALL_K3S_EXEC="--bind-address=#{server_ip} --node-external-ip=#{server_ip} --flannel-iface=eth1"
+    curl -sfL https://get.k3s.io | sh -
 SHELL
 
 
