@@ -1,0 +1,10 @@
+resources:
+- nginx-deployment-app.yaml
+- service.yaml
+
+commonLabels:
+  app: IOT
+
+configMapGenerator:
+- name: IOT-app
+  env: "baseGen"

@@ -1,0 +1,10 @@
+kind: # https://kubernetes.io/docs/concepts/configuration/configmap/
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: IOT-app
+  namespace: default
+data:
+  env: "test"
+---
+

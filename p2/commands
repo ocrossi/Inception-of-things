@@ -5,3 +5,4 @@ sudo apk update && sudo apk add python3 py3-pip
 sudo p app.py /opt/
 
 docker run -itd --name wsip -p 80:80 -v /home/rossideb/Inception-of-things/p2:/usr/share/nginx/html nginx
+sudo ss -tulpn : see all ports listening on localhost

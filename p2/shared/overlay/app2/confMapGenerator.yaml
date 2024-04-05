@@ -1,0 +1,6 @@
+configMapGenerator:
+- name: example-config
+  namespace: example 
+  #behavior: replace
+  files:
+    - configs/app2.html
