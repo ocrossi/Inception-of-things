@@ -5,6 +5,6 @@ resources:
 commonLabels:
   app: IOT
 
-configMapGenerator:
-- name: IOT-app
-  env: "baseGen"
+#configMapGenerator:
+#- name: IOT-app
+#  env: "baseGen"

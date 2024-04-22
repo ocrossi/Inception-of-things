@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: IOT
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: IOT
+  template:
+    metadata:
+      labels:
+        app: IOT
+    spec:
+      containers:
+      - image: nginx:latest
+        name: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /configs/
+          name: config-volume
+      volumes:
+      - configMap:
+          name: html-config
+        name: config-volume

@@ -6,3 +6,34 @@ sudo p app.py /opt/
 
 docker run -itd --name wsip -p 80:80 -v /home/rossideb/Inception-of-things/p2:/usr/share/nginx/html nginx
 sudo ss -tulpn : see all ports listening on localhost
+
+# kubectl
+ kubectl get nodes
+ kubectl get pods
+ kubectl get services
+
+kubectl apply -f <deploy.yml>
+
+kubectl logs <deployname>
+
+kubectl delete deployment <deployname>
+kubectl delete services   <servicename>
+
+
+kubectl get all
+
+Kubernetes Shortcuts
+
+    po : Pods
+    rs : ReplicaSets
+    deploy : Deployments
+    svc : Services
+    ns : Namespaces
+    netpol : Network policies
+    pv : Persistent Volumes
+    pvc : PersistentVolumeClaims
+    in : Service Accounts
+
+
+install nginx-ingress-controller
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
