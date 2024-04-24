@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngd
+
+spec:
+  replicas: 1
+  template:
+    metadata:
+    spec:
+      volumes:
+        - name: config-volume
+          hostPath:
+            path: /vagrant_shared/app1.html
+            type: File

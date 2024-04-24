@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+  - host: "app1.com"  # Wildcard for all subdomains of service.com
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: ngs-app1
+            port: 80
+  - host: "app2.com"  # Specific host for www.service.com
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: ngs-app2
+            port: 80
+  - host: "app3.com"  # Specific host for www.service.com
+    http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: ngs-app3
+            port: 80

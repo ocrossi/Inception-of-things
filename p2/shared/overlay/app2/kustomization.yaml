@@ -1,0 +1,10 @@
+resources:
+  - ../../base/
+
+nameSuffix: -app2
+commonLabels:
+  app: IOT
+
+patches:
+  - path: replicasandvolume.yaml
+  - path: hostrouting.yaml

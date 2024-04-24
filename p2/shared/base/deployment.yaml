@@ -1,14 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: ngd
 
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
-      labels:
-        app: nginx
     spec:
       containers:
       - name: nginx
@@ -17,9 +15,9 @@ spec:
         - containerPort: 80
         volumeMounts:
           - name: config-volume
-            mountPath: /configs/
+            mountPath: /usr/share/nginx/html/index.html
       volumes:
         - name: config-volume
-          configMap:
-            name: html-config
-
+          hostPath:
+            path: /vagrant_shared/app1.html
+            type: File

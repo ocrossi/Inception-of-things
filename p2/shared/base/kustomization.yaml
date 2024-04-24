@@ -1,10 +1,9 @@
 resources:
-- nginx-deployment-app.yaml
+- deployment.yaml
 - service.yaml
+- ingress.yaml
+
+namespace: test
 
 commonLabels:
   app: IOT
-
-#configMapGenerator:
-#- name: IOT-app
-#  env: "baseGen"
