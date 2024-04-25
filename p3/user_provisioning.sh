@@ -1,15 +1,21 @@
 echo "I am the user provisionning script"
 
-echo "alias k=\"sudo kubectl\"" >>/home/vagrant/.bashrc
-echo "alias kubectl=\"sudo kubectl\"" >>/home/vagrant/.bashrc
-echo "alias k3d=\"sudo k3d\"" >>/home/vagrant/.bashrc
+sudo apt install -y git zsh
 
-source /home/vagrant/.bashrc
+echo "alias k=\"sudo kubectl\"" >>/home/vagrant/.zshrc
+echo "alias kubectl=\"sudo kubectl\"" >>/home/vagrant/.zshrc
+echo "alias k3d=\"sudo k3d\"" >>/home/vagrant/.zshrc
+
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+sudo chsh -s $(which zsh)
 
 echo "who am i really? $(whoami)"
 
-sudo -i
+# sudo -
 
-k3d cluster create argocd
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# k3d cluster create argocd
+# kubectl create namespace argocd
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+

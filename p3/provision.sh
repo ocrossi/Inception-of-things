@@ -3,9 +3,9 @@
 server_ip="192.168.56.110"
 
 echo I am provisioning server...
-sudo -i
-apk add curl
-apk add --update docker docker-compose openrc
+apt update && apt upgrade
+apt install curl -y
+apt install -y docker docker-compose openrc
 service docker start
 
 #k3d
