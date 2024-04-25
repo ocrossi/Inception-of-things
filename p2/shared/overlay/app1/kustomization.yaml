@@ -9,4 +9,4 @@ patches:
 
 
 commonLabels:
-  app: IOT
+  version: app1

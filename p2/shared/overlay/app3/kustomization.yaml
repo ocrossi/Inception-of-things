@@ -3,7 +3,7 @@ resources:
 
 nameSuffix: -app3
 commonLabels:
-  app: IOT
+  version: app3
 
 patches:
   - path: volume.yaml

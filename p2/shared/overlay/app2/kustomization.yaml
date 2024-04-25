@@ -3,7 +3,7 @@ resources:
 
 nameSuffix: -app2
 commonLabels:
-  app: IOT
+  version: app2
 
 patches:
   - path: replicasandvolume.yaml

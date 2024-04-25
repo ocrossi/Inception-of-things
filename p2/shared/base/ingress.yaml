@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-wildcard-host
+  name: ingress-host-routing
 spec:
   rules:
   - host: "app1.com"
@@ -10,8 +10,7 @@ spec:
       - pathType: Prefix
         path: "/"
         backend:
-          service:
-            name: ngs-app1
-            port:
-              number: 80
-  #ingressClassName: nginx chaing ingress controller to nginx
+          serviceName: ngs-app1
+          servicePort: 80
+  #ingressClassName: nginx
+  #changing ingress controller to nginx

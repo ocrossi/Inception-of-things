@@ -15,11 +15,25 @@ curl -sfL https://get.k3s.io | sh -
 #cd linux-amd64/
 #sudo mv helm /usr/local/bin/
 # some style plz, shadow for chsh
-apk add zsh
 # kubectl utils
-echo "alias k=\"sudo kubectl\"" >>/home/vagrant/.bashrc
-echo "alias kubectl=\"sudo kubectl\"" >>/home/vagrant/.bashrc
-# still need to source
+#echo "alias k=\"sudo kubectl\"" >>/home/vagrant/.bashrc
+#echo "alias kubectl=\"sudo kubectl\"" >>/home/vagrant/.bashrc
+
+echo "Starting to deploy k3s resources"
+sleep 60
+echo "been sleeping 60 sec"
+cd /vagrant_shared/overlay
+
+# create my namespace
+
+ns="iot"
+
+kubectl create ns $ns
+kubectl config set-context --current --namespace=$ns
+
+kubectl apply -k app1
+kubectl apply -k app2
+kubectl apply -k app3
 
 # install nginx controller
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml

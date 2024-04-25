@@ -3,7 +3,5 @@ resources:
 - service.yaml
 - ingress.yaml
 
-namespace: test
+namespace: iot
 
-commonLabels:
-  app: IOT

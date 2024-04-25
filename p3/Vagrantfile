@@ -11,8 +11,8 @@ server_ip = "192.168.56.110"
 Vagrant.configure("2") do |config|
   
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = 2048
-    vb.cpus = 4    # create a master VM before creating the linked clones
+    vb.memory = 4096
+    vb.cpus = 8   # create a master VM before creating the linked clones
     vb.linked_clone = true
   end
 
@@ -22,5 +22,6 @@ Vagrant.configure("2") do |config|
     serv.vm.synced_folder "./shared", "/vagrant_shared"
     serv.vm.hostname = "server-node"
     serv.vm.provision "shell", path: "provision.sh"
+    serv.vm.provision "shell", path: "user_provisioning.sh", privileged: false
   end
 end

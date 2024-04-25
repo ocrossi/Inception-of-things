@@ -3,15 +3,14 @@ kind: Ingress
 metadata:
   name: ingress-host-routing
 spec:
-  rules:
-  - host: "app1.com"
-    http:
+ rules:
+  - http:
       paths:
-      - pathType: Prefix
-        path: "/"
+      - path: /
+        pathType: Prefix
         backend:
           service:
-            name: ngs-app1
+            name: ngs-app3
             port:
               number: 80
-  # ingressClassName: nginx
+
