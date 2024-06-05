@@ -1,0 +1,9 @@
+#create k3d cluster
+k3d cluster create my-cluster --api-port 6443 -p 8080:80@loadbalancer --agents 2
+
+
+k config set-context --current --namespace=argocd
+
+# get initial admin password
+sudo kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+

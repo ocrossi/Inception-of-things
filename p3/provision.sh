@@ -15,16 +15,13 @@ curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-#echo "alias k=\"sudo kubectl\"" >>/home/vagrant/.profile
-#echo "alias kubectl=\"sudo kubectl\"" >>/home/vagrant/.profile
-#echo "alias k3d=\"sudo k3d\"" >>/home/vagrant/.profile
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+mv ./nvim.appimage /usr/bin/nvim
+chmod +x /usr/bin/nvim
 
-#export INSTALL_K3S_EXEC="--bind-address=${server_ip} --node-external-ip=${server_ip} --flannel-iface=eth1"
-#curl -sfL https://get.k3s.io | sh -
-# Helm install. For some reason cant install nginx ingress threw helm
-#curl -lSO https://get.helm.sh/helm-v3.14.4-linux-amd64.tar.gz
-#tar -xzvf helm-v3.14.4-linux-amd64.tar.gz
-#cd linux-amd64/
-#sudo mv helm /usr/local/bin/
-# some style plz, shadow for chsh
-# kubectl utils
+k3d cluster create dev-cluster -p "8080:80@loadbalancer" -p "8888:88@loadbalancer" &&
+	kubectl create ns argocd &&
+	kubectl create ns dev
+
+curl -L -o devspace "https://github.com/loft-sh/devspace/releases/latest/download/devspace-linux-amd64"
+sudo install -c -m 0755 devspace /usr/local/bin

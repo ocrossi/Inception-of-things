@@ -1,0 +1,4 @@
+resources:
+- deploy.yml
+- svc.yml
+- ingress.yml
