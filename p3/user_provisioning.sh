@@ -33,7 +33,7 @@ sudo kubectl apply -f install.yml
 sudo kubectl apply -f config_insecure.yml
 sudo kubectl apply -f traefik_argo_ingress.yml
 
-# lets go last part, using argocd
-# sudo kubectl config set-context --current --namespace=dev
+sudo kubectl wait pod --all --timeout 15m --for=condition=Ready --namespace=argocd
 
-# argocd cluster add docker-desktop
+# lets go last part, using argocd
+sudo kubectl apply -f argocd-app.yaml
